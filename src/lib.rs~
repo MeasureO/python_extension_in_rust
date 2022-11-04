@@ -1,0 +1,17 @@
+// Для объединения Rust и Python необходимо обеспечить преобразование кода на этих языках
+extern crate cpython;
+
+use cpython::{PyResult, Python, py_module_initializer, py_fn};
+
+py_module_initializer!(rust_processing, |py, m| {
+        m.add(py, "doc", "Этот модуль реализован на языке Rust")?;
+            m.add(py, "return_first", py_fn!(py, return_first(array: Vec<i32>)))?;
+});
+
+fn return_first(_py: Python, array: Vec<i32>) -> PyResult<i32> {
+        Ok(_return_first(&array))
+}
+
+fn _return_first(array: &Vec<i32>) -> i32 {
+        array[0]
+}
