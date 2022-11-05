@@ -14,3 +14,6 @@ rand = "0.8.4"
 [dependencies.cpython]
 version = "0.5"
 features = ["extension-module"]
+
+
+#https://habr.com/ru/company/exness/blog/697034/
